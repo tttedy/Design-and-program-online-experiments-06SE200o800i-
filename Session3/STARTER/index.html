@@ -2,16 +2,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--add/adjust meta and title of you choice-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My page</title>
+    <link rel="stylesheet" href="myFirstCSS.css">
+    <style>
+        h1 {
+            color:black
+        }
+    </style>
 </head>
 <body>
-    <h1>My main heading</h1>
-    <p>line one.<br>line two.</p>
+    <!--try example for text content elements-->
+    <h1 id="main-heading" style="color:black;">
+         My Main Heading 
+    </h1>
+    <p class="highlight">
+        line one.<br>line two.
+    </p>
+    <div id="container">
+        <p class="highlight">This is a highlighted paragraph</p>
+    </div>
+    
     <p>A paragraph with <strong>bold</strong> text.</p>
     <p>A paragraph with <em>italic</em> text.</p>
 
+    <!--Play with div, hr and span elements -->
     <div>
         <h2>Generic grouped content</h2>
         <p>Another paragraph inside a div.</p>
@@ -23,6 +40,7 @@
     </p>
     <hr>
 
+    <!--Add list elements-->
     <h2>Unordered list</h2>
     <ul>
         <li>item 1</li>
@@ -36,5 +54,43 @@
         <li>item 2</li>
         <li>item 3</li>
     </ol>
+
+<!--Form element in CSS -->
+  <p>
+   <form>
+    <label>Text:</label>
+    <input type="Name" placeholder="Max Muster" reuqired>
+    <br><label>Number:</label>
+    <input type="number" min="0" max="10">
+    <br><label>Kids:</label>
+    <input type="range" min="1" max="5">
+    <br><label>Checkbox|radio:</label>
+    <input type="checkbox" >|<input type="radio">
+    <input type="submit">
+    <input type="reset" value="Reset">
+  </form>
+  </p>
+  
+  
+  <!-- drop Down list  -->
+   <p>
+    <label>What's your favourite food?</label>
+    <select name="input" id="input_type">
+     <option>pizza</option>
+     <option>fries</option>
+     <option>sushi</option>
+     <option>checkbox</option>
+     <option>radio</option>
+   <option>submit</option>
+   <option>reset</option>
+  </select>
+  </p>
+
+  <div style="color: blue; text-align: center;">My favourite CSS</div>
+  <p style="font-size: 30px">Inline CSS </p>
+
+
+  
+
 </body>
 </html>
