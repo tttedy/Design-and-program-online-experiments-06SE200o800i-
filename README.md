@@ -27,7 +27,7 @@ git merge upstream/main
 
 git push origin main
 
-#### 1.2  If you encounter conflict merge, please either see git_merge_conflict.html or Session1/STARTER/create_your_folder_md/If you ever have a Git divergence issue...
+#### 1.2  If you encounter conflict merge, please either see[ git_merge_conflict.html ](https://j2k101000101.github.io/Design-and-program-online-experiments-06SE200o800i-/git_merge_conflict.html) or Session1/STARTER/create_your_folder_md/If you ever have a Git divergence issue...
 
 ### 2. Never Edit the STARTER Files Directly
 
