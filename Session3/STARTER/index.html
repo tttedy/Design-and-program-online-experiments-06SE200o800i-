@@ -5,6 +5,11 @@
     <!--add/adjust meta and title of you choice-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h3{
+            color:yellowgreen;
+        }
+    </style>
     <title>My page</title>
     <link rel="stylesheet" href="myFirstCSS.css">
     <style>
@@ -28,14 +33,13 @@
     <p>A paragraph with <strong>bold</strong> text.</p>
     <p>A paragraph with <em>italic</em> text.</p>
 
-    <!--Play with div, hr and span elements -->
-    <div>
+    <div style="color:blue; text-align: center;">
         <h2>Generic grouped content</h2>
         <p>Another paragraph inside a div.</p>
     </div>
     <hr>
     <h3>heading after the horizontal line.</h3>
-    <p>
+    <p style="font-size: 50px;">
           with a <span style= "color:red; background-color: gold;">red</span> word.
     </p>
     <hr>
@@ -55,42 +59,18 @@
         <li>item 3</li>
     </ol>
 
-<!--Form element in CSS -->
-  <p>
-   <form>
-    <label>Text:</label>
-    <input type="Name" placeholder="Max Muster" reuqired>
-    <br><label>Number:</label>
-    <input type="number" min="0" max="10">
-    <br><label>Kids:</label>
-    <input type="range" min="1" max="5">
-    <br><label>Checkbox|radio:</label>
-    <input type="checkbox" >|<input type="radio">
-    <input type="submit">
-    <input type="reset" value="Reset">
-  </form>
-  </p>
-  
-  
-  <!-- drop Down list  -->
-   <p>
-    <label>What's your favourite food?</label>
-    <select name="input" id="input_type">
-     <option>pizza</option>
-     <option>fries</option>
-     <option>sushi</option>
-     <option>checkbox</option>
-     <option>radio</option>
-   <option>submit</option>
-   <option>reset</option>
-  </select>
-  </p>
+    <form>
+        <p>Text:</p> <input type="text">
+        <p>Number:</p> <input type="number" min="18" max="35">
+        <input type="range" min="1" max="5">
+        <input type ="checkbox">
+        <input type="radio">
+        <input type="submit">
+    </form>
 
-  <div style="color: blue; text-align: center;">My favourite CSS</div>
-  <p style="font-size: 30px">Inline CSS </p>
-
-
-  
-
+    <select>
+        <option>A</option>
+        <option>B</option>
+    </select>
 </body>
 </html>
