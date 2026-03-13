@@ -2,8 +2,8 @@
 
 
 /* 4.2.1:  Arithmetic & Assignment Operators:
-First, work out from what you understand by replacing the ? with your expected outcome; */
-
+First, work out from what you understand by replacing the ? with your expected outcome;
+ */
 
 /* example answer 
 let example = 10;
@@ -12,7 +12,7 @@ console.log(example); // ? -> 10
 
 let a = 8;
 let b = 2;
-console.log(a+b); // 10
+console.log(a+b); //10
 console.log(8**2); // 64
 
 
@@ -50,7 +50,7 @@ function newFunction(a,b) {
     return { a, b, c};
 }
 let myResults = newFunction(1, 3);
-console.log("my results:", myResults); // ?
+console.log("my results:", myResults);// {a: 4, b: 3, c: [1,3]}
 
 /* 4.2.5: Verify your answers by running the JavaScript script in operator.html. Open the browser's developer console and check the logged output. Compare the results with the expected answers from the previous steps. */
 
@@ -65,35 +65,35 @@ If the age is outside this range, display an alert() with the message:
 "Participant is not eligible for the experiment due to age!". 
 */
 
-// First try when age = 25 
-let age = 25;
+// conditional statement
+let age = 17;
 console.log("Try age =", age);
+if(age>=18 && age<=35 ){
+    console.log(`The current participant's age is, ${age}, within 18-35; Participant is eligible for the experiment`)
 
-// Then try when age = 17
+}else{
+    alert("Participant is not eligible for the experiment due to age!")
+}
 
-if (18 > age <= 35) {
-    console.log(`The current participants age is ${age}, within 18-35; Participant is eligible for the experiment`)
-} else {
-    console.log(`The current participant's age is ${age}, not within 18-35; Participant is not eligible for the experiment`);
- }
+// conditional operator
+age = 25;
+console.log("Try age =", age);
+(age>=18 && age<=35)?console.log(`The current participant's age is, ${age}, within 18-35; Participant is eligible for the experiment`):alert("Participant is not eligible for the experiment due to age!")
 
 
-/* # plus 1:  In JavaScript, certain operations (like arithmetic operations) can implicitly convert values from one type to another.
-First, work out from what you understand by replacing the ? with your expected outcome;
-Then, uncomment two console.log()lines to check your answers.
-*/
+
+/* # plus 1:  In JavaScript, certain operations (like arithmetic operations) can implicitly convert values from one type to another.*/
 let value = "5";
 let result = value * 2;
 console.log(result);        // 10
 console.log(typeof result); // number
 // When a string is used in an arithmetic operation, JavaScript attempts to convert it into a number.
 
-/* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
+/* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality /* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
 First, work out from what you understand by replacing the ? with your expected outcome;
 Then, uncomment three console.log()lines to check your answers.
 Are anything surprising to you?
 */
-
 let points = 10;
 let bonus = "5";
 
@@ -101,7 +101,8 @@ let totalPoints = points + bonus;
 let isEqual = totalPoints == 105;  
 let isStrictEqual = totalPoints === 105; 
 
-console.log(totalPoints);   // 105
+
+console.log(totalPoints);   // "105"
 console.log(isEqual);       // true
 console.log(isStrictEqual); // false
 
@@ -118,7 +119,7 @@ You are conducting a psychology experiment that requires participants to meet sp
 4) Participants must not have any known cognitive impairments (hasCognitiveImpairment).
 
 YOUR TASK is to:
-    1. write function in hello.js that determines whether a participant is eligible for the experiment based on the criteria above;
+    1. write a function that determines whether a participant is eligible for the experiment based on the criteria above;
     2. Use console.log to output one of the following messages based on the result: "Participant is eligible for the experiment." or "Participant is not eligible for the experiment!";
     3. Test your program with different combinations of the variables to ensure it works correctly. For example:
     let ageInput = 25; // or 17                                         
@@ -127,30 +128,37 @@ YOUR TASK is to:
     let hasCognitiveImpairment = false;
 */
 
+function checkEligibility(ageInput, hasParticipatedBefore, hasNormalVisionOrNot,hasCognitiveImpairment){
+    if(ageInput>=18 && ageInput<=25 && hasParticipatedBefore===false && hasNormalVisionOrNot===true && hasCognitiveImpairment===false){
+        console.log("Participant is eligible for the experiment.")
+    }else{
+        console.log("Participant is not eligible for the experiment!")
+
+    }
+}
     let ageInput = 25; // or 17                                         
     let hasParticipatedBefore = false; // or True
     let hasNormalVisionOrNot = true;
     let hasCognitiveImpairment = false;
-    console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> YES
+     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
+
+   checkEligibility(ageInput, hasParticipatedBefore, hasNormalVisionOrNot,hasCognitiveImpairment)
 
     ageInput = 17;                                         
     hasParticipatedBefore = false; // or True
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
-    console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> NO age > 18
+     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
+
+   checkEligibility(ageInput, hasParticipatedBefore, hasNormalVisionOrNot,hasCognitiveImpairment)
 
     ageInput = 25;                                         
     hasParticipatedBefore = true; 
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
-    console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> NO 
+     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
 
-
-
-
+   checkEligibility(ageInput, hasParticipatedBefore, hasNormalVisionOrNot,hasCognitiveImpairment)
 
 
 

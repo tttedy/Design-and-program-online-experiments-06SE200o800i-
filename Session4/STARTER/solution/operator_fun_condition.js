@@ -12,8 +12,8 @@ console.log(example); // ? -> 10
 
 let a = 8;
 let b = 2;
-console.log(a+b); // 10
-console.log(8**2); // 64
+console.log(a+b); // ?
+console.log(8**2); // ?
 
 
 /* 4.2.2: Equality and Strict Equality:
@@ -21,10 +21,10 @@ First, work out from what you understand by replacing the ? with your expected o
 let x = 5;
 let y = "5";
 
-console.log(x == y);  // true
-console.log(x === y); // false
-console.log(x != y);  // false
-console.log(x !== y); // true
+console.log(x == y);  // ?
+console.log(x === y); // ?
+console.log(x != y);  // ?
+console.log(x !== y); // ?
 
 
 /* 4.2.3: logical operators:
@@ -32,14 +32,14 @@ First, work out from what you understand by replacing the ? with your expected o
 let isAdult = true;
 let hasNormalVision = false;
 
-console.log(isAdult && hasNormalVision); // false
-console.log(isAdult || hasNormalVision); // true
+console.log(isAdult && hasNormalVision); // ?
+console.log(isAdult || hasNormalVision); // ?
 
 let score = 50;
 
-console.log(score > 40 && score < 60);  // true
-console.log(score * 2 === 100);         // true
-console.log(score % 2 === 0 || score < 0); // true
+console.log(score > 40 && score < 60);  // ?
+console.log(score * 2 === 100);         // ?
+console.log(score % 2 === 0 || score < 0); // ?
 
 
 /* 4.2.4: what this newFunction will return:  
@@ -71,12 +71,6 @@ console.log("Try age =", age);
 
 // Then try when age = 17
 
-if (18 > age <= 35) {
-    console.log(`The current participants age is ${age}, within 18-35; Participant is eligible for the experiment`)
-} else {
-    console.log(`The current participant's age is ${age}, not within 18-35; Participant is not eligible for the experiment`);
- }
-
 
 /* # plus 1:  In JavaScript, certain operations (like arithmetic operations) can implicitly convert values from one type to another.
 First, work out from what you understand by replacing the ? with your expected outcome;
@@ -84,8 +78,8 @@ Then, uncomment two console.log()lines to check your answers.
 */
 let value = "5";
 let result = value * 2;
-console.log(result);        // 10
-console.log(typeof result); // number
+// console.log(result);        // ?
+// console.log(typeof result); // ?
 // When a string is used in an arithmetic operation, JavaScript attempts to convert it into a number.
 
 /* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
@@ -101,9 +95,9 @@ let totalPoints = points + bonus;
 let isEqual = totalPoints == 105;  
 let isStrictEqual = totalPoints === 105; 
 
-console.log(totalPoints);   // 105
-console.log(isEqual);       // true
-console.log(isStrictEqual); // false
+// console.log(totalPoints);   // ?
+// console.log(isEqual);       // ?
+// console.log(isStrictEqual); // ?
 
 
 /* Plus 3: 
@@ -132,21 +126,21 @@ YOUR TASK is to:
     let hasNormalVisionOrNot = true;
     let hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> YES
+    // will this be eligible?
 
     ageInput = 17;                                         
     hasParticipatedBefore = false; // or True
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> NO age > 18
+    // will this be eligible?
 
     ageInput = 25;                                         
     hasParticipatedBefore = true; 
     hasNormalVisionOrNot = true;
     hasCognitiveImpairment = false;
     console.log("age:", ageInput, "participated before?", hasParticipatedBefore, "normal vision:",hasNormalVisionOrNot, "cognitive impairment:",hasCognitiveImpairment)
-    // will this be eligible? --> NO 
+    // will this be eligible?
 
 
 
