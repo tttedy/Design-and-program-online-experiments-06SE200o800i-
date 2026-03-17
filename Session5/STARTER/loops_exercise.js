@@ -31,7 +31,7 @@ let thisTrial;
 let j = 0
 
 while (totalTime <= 2000 && j < recordedTimes.length) {
-    totalTime += recordedTimes[j];
+    totalTime += recordedTimes[j] - 200;
     j++;
     thisTrial = j;
   }
