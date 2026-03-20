@@ -16,10 +16,10 @@ const trials = [
 
 // An example of using filter()
 
-//const correctTrials = trials.filter(trial => trial.correct);
-//const correctCount = correctTrials.length;
-//const acc = correctCount/trials.length
-//console.log("Accuracy :", acc); // 0.6
+const correctTrials = trials.filter(trial => trial.correct);
+const correctCount = correctTrials.length;
+const acc = correctCount/trials.length
+console.log("Accuracy :", acc); // 0.6
 
 
 // Given the example of using filter(), can you use forEach() instead to achive the same goal?
@@ -28,21 +28,22 @@ const trials = [
  1.use forEach to get correct count, divided by total length to get accuracy
  2.if you wish to test it: Add array_method_exercise.js to session6.html*/
 
-let correctCount = 0;
+let correctCounts = 0;
 // start add your code here
-
+trials.forEach(trial => {
+  if (trial.correct) correctCounts++;
+})
 // your code end
-console.log("Correct answers:", correctCount);
-const acc =  correctCount/trials.length;
-console.log("Accuracy:", acc);
+console.log("Correct answers:", correctCounts);
+const accuracy =  correctCounts/trials.length;
+console.log("Accuracy:", accuracy);
 
 
-
- 
 
 /* plus 1: could you think of doing exercise 1 in chaining */
 
-
+const chained = trials.filter(trial => trial.correct).length/trials.length
+console.log("Accuracy (chained):", chained);
 
  
  
