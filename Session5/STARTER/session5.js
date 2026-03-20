@@ -1,3 +1,16 @@
+// let ageGroup;
+// const age = 25;
+// if(age<18){
+//     ageGroup = "Child";
+
+// }else{
+//     ageGroup="Adult";
+// }
+// console.log("ageGroup:", ageGroup);
+
+let age = 18;
+let ageGroup = age<18?"child":"adult";
+console.log("ageGroup:", ageGroup);
 const responseTimes = [350, 420, 510];
 for (const time of responseTimes) {
 console.log(`Response Time: ${time} ms`);
@@ -19,5 +32,3 @@ console.log(`${key}: ${trial[key]}`);
 // id: 1
 // responseTime: 350
 // correct: tr
-
-console.log("session5.js loaded")

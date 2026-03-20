@@ -6,11 +6,8 @@
 const threshold = 300; 
 function isFasterThanThreshold(responseTime) {
     // Write logic to check if the reaction time is faster than the threshold
-  if (responseTime < threshold) {
-    return "too fast"
-  } else {
-    return "valid"
-   }
+    const result = responseTime < threshold? "too fast":"valid"; 
+    return result;
   }
   
 // Call the function with different inputs
@@ -19,23 +16,30 @@ console.log(`Expected output: ${isFasterThanThreshold(200)}`)
 console.log(`Expected output: ${isFasterThanThreshold(400)}`)
 // Expected output: "valid"
   
+
 /* exercise 5.2.4 */
 
 // Write a function that calculates the average reaction time from an array of six response times. 
 // call the function e.g., calculateAverageRT(responseTimes); .
 
 // Write your function here
-function calculateAverageRT() {
-
+function calculateAverageRT(responseTimes){
+  let totalTime = 0;
+  let i = 0
+  for(time of responseTimes){
+    totalTime += time;
+    i ++; 
+  }
+  return totalTime/i;
 }
+
+
 
   // Example input
   let responseTimes = [100, 200, 300, 400, 500,600];
   const avgTime = calculateAverageRT(responseTimes); 
   console.log("Expected avgTime:",avgTime );
   // Expected avgTime: 350
-
-
 
    /* # Plus 2 */
 
@@ -47,15 +51,18 @@ function calculateAverageRT() {
 
 */
 
-const recordedTimes = [550, 490, 510, 890, 1450, 470, 940, 620, 930, 360];
-
-const getPerformanceFeedback = (reactionTime) =>
-  reactionTime < 200
-    ? "Excellent"
-    : reactionTime <= 500
-    ? "Good"
-    : "Needs Improvement";
-
-for (let i = 0; i < recordedTimes.length; i++) {
-  console.log(getPerformanceFeedback(recordedTimes[i]));
+const getPerformanceFeedback = (responseTime) =>{
+  let msg;
+  if (responseTime < 200 && responseTime > 0){
+    msg = "Excellent";
+  }else if(responseTime >= 200 && responseTime <= 500){
+    msg = "Good";
+  }
+  else{
+    msg = "Needs Improvement";
+  }
+  return msg;
+}
+for(let responseTime of responseTimes){
+  console.log(`${responseTime} ms, `, getPerformanceFeedback(responseTime));
 }
