@@ -14,18 +14,93 @@
     <title>Session 7</title>
 </head>
 <body>
-        //Step 1: add script for experiment 
-  
+   <script>
+    const jsPsych = initJsPsych();
+
+    const timeline = []
 
         // step 2: initiate jsPsych instance and assign to a variable 
 
+    const fixation = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: "+",
+            choices: "NO_KEYS",
+            trial_duration: 1000
+        }
+
+    const canvas = {
+            type:jsPsychCanvasKeyboardResponse,
+            canvas_size: [500,500],
+            stimulus: function (c){
+                const shape = c.getContext("2d");
+
+                shape.fillStyle = "#e89ca9";
+                shape.fillRect(20,20,100,50);
+                shape.strokeStyle ="#b0b0b0";
+                shape.strokeRect(20,20,100,50);
+                shape.clearRect(40,30,20,20)
+            },
+            choices: "ALL_KEYS",
+            trial_duration: 3000
+        }
+
+    const triangle = {
+        type: jsPsychCanvasKeyboardResponse,
+        canvas_size: [1000, 1000],
+        stimulus: function(c) {
+            const trian = c.getContext("2d")
+
+            trian.beginPath();
+            trian.moveTo(150, 50); // Top point of triangle
+            trian.lineTo(100, 150); // Bottom left
+            trian.lineTo(200, 150); // Bottom right
+            trian.closePath(); // Closes back to the starting point
+            trian.fillStyle = "lightgreen";
+            trian.fill(); // Fill the triangle with color
+            trian.strokeStyle = "black";
+            trian.stroke(); // Draw the outline
+
+        },
+        choices: "ALL_KEYS",
+        trial_duration: 2000
+    }
+
+
+    const circle = {
+        type: jsPsychCanvasKeyboardResponse,
+        canvas_size: [1000, 1000],
+        stimulus: function(c) {
+            const ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+            ctx.fillStyle = "lightblue";
+            ctx.fill();
+            ctx.strokeStyle = "blue";
+            ctx.stroke();
+            ctx.closePath();
+
+            ctx.fillStyle = "black";
+            ctx.font = "14px Arial";
+            ctx.fillText("Circle (arc)", 70, 170);
+
+        },
+        choices: "ALL_KEYS",
+        trial_duration: 1500
+    }
+
+
 
         //Step 3:  build your timeline
- 
-
-
+        
+        timeline.push(fixation);
+        timeline.push(canvas);
+        timeline.push(triangle);
+        timeline.push(circle);
+    
         //Step 4: run your jsPsych
 
+        jsPsych.run(timeline)
 
+    </script> 
 </body>
 </html>

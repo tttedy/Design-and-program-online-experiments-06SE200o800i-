@@ -1,6 +1,8 @@
 /*  we will do canvas drawing using jsPsych
  instruction (right arrow key) -> fixation (1s) ->  bunny (until response by pressing spacebar) -> feedback (thumbs up for 1s) -> draw a smily face */
 
+// const { initJsPsych } = require("jspsych");
+
 // 7.2.1.1  finish step 0,1 in html
 // 7.2.1.2  finish step 2,4 in jsPsych
 // 7.2.3:  given a drawBunnyfn, make a trial to draw the bunny after fixation
@@ -9,7 +11,11 @@
 
 //step 2:  initiate jsPsych
 
+const jsPsych = initJsPsych();
+
 // step 3: building timeline 
+
+const timeline = []
 
 // instruction 
 const instruction = {
@@ -27,7 +33,7 @@ const fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: "+",
     choices: "NO_KEYS",
-    trial_duration: 1000
+    trial_duration: jsPsych.randomization.sampleWithoutReplacement([1000, 2000, 3000], 1)[0] // 1 = one number to pick 
 }
 timeline.push(fixation);
 
@@ -93,18 +99,111 @@ const drawBunnyfn = function (canvas){
        context.fillStyle = nose;
        context.fill();
 
+
+       // EASTER EGG NEXT TO THE BUNNY
+        const eggX = x + 90;
+         const eggY = y + 10;
+
+  // egg body
+        context.beginPath();
+        context.ellipse(eggX, eggY, 25, 35, 0, 0, 2 * Math.PI);
+        context.fillStyle = "#AEE1F9";
+        context.fill();
+        context.strokeStyle = "#000";
+        context.stroke();
+
+        // egg stripe 1
+        context.beginPath();
+        context.moveTo(eggX - 20, eggY - 10);
+        context.lineTo(eggX + 20, eggY - 10);
+        context.strokeStyle = "#FF69B4";
+        context.lineWidth = 3;
+        context.stroke();
+
+        // egg stripe 2
+        context.beginPath();
+        context.moveTo(eggX - 20, eggY + 8);
+        context.lineTo(eggX + 20, eggY + 8);
+        context.strokeStyle = "#FF69B4";
+        context.lineWidth = 3;
+        context.stroke();
+
+        // egg dots
+        context.beginPath();
+        context.arc(eggX, eggY - 20, 4, 0, 2 * Math.PI);
+        context.arc(eggX - 10, eggY + 18, 4, 0, 2 * Math.PI);
+        context.arc(eggX + 10, eggY + 18, 4, 0, 2 * Math.PI);
+        context.fillStyle = "#FF69B4";
+        context.fill();
+
+  // reset line width
+  context.lineWidth = 1;
+
 }
 
+const bunnyTrial = {
+    type: jsPsychCanvasKeyboardResponse,
+    stimulus: drawBunnyfn,
+    canvas_size: [500, 500],
+    choices: [' ']
+  };
+
+timeline.push(bunnyTrial)
 
 const end = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: "<h2>👍<h2>",
+    stimulus: "<h2>👍</h2>",
     choices: "NO_KEYS",
     trial_duration: 1000
 }
 timeline.push(end)
 
+
+const drawSmileyfn = function(canvas) {
+    const context = canvas.getContext("2d");
+  
+    const x = canvas.width / 2;
+    const y = canvas.height / 2;
+  
+    // clear canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  
+    // FACE (big circle)
+    context.beginPath();
+    context.arc(x, y, 50, 0, 2 * Math.PI);
+    context.fillStyle = "#FFD966";
+    context.fill();
+    context.strokeStyle = "#000";
+    context.stroke();
+  
+    // EYES
+    context.beginPath();
+    context.arc(x - 20, y - 15, 5, 0, 2 * Math.PI);
+    context.arc(x + 20, y - 15, 5, 0, 2 * Math.PI);
+    context.fillStyle = "#000";
+    context.fill();
+  
+    // MOUTH (semi-circle)
+    context.beginPath();
+    context.arc(x, y + 5, 25, 0, Math.PI);
+    context.strokeStyle = "#000";
+    context.lineWidth = 3;
+    context.stroke();
+  };
+  
+  const smileyTrial = {
+    type: jsPsychCanvasKeyboardResponse,
+    stimulus: drawSmileyfn,
+    canvas_size: [500, 500],
+    choices: [" "],
+    trial_duration: 3000
+  };
+
+timeline.push(smileyTrial)
+
 // step 4: run the timline
+
+jsPsych.run(timeline)
 
 
 
